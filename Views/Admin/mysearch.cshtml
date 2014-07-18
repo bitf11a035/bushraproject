@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "mysearch";
+}
+
+<h2>mysearch</h2>
+
+    <div class="span6">
+        <h2>Search Result</h2>
+    </div>
+    <div class="span9"  >
+         <h6> SEARCH BY: </h6>
+            
+            <select style="width:50%" id="search">
+                <option > Tittle </option>
+            
+            </select>
+        <div id="view">
+            <table id=table1>
+                </table>
+        </div>
+        <div>
+            <table id=table>
+                </table>
+            
+        </div>
+        @Scripts.Render("~/bundles/jquery")
+    <script>
+        $(document).ready(function () {
+
+                 $('#search').change(function ()
+                 {
+                     value = $('#search').val();
+                     $('#table1 tr').remove(); 
+                     $('#table tr').remove();
+                     //search through title
+                     if (value == "Tittle")
+                     {
+                         $('#table1').append('<tr><td>@Html.Label("Name")</td><td><input type=text id=Name  /></td><td><Button id=but>Search</Button></td></tr>');
+                         $('#but').click(function ()
+                         {
+                             Name = $('#Name').val();
+                             
+                             $.getJSON("/Home/search_by_title?Name=" + Name, function (data) {
+                                 $('#checking').show();
+                                 //alert('User Name =' + Name);
+                                // $('#table tr').remove();
+
+                                 $.each(data, function (i,Item)
+                                 {
+                                     //alert("yes");
+                                     alert('User Name =' + Name);
+                                 });
+
+                             });
+                         });
+                     }
+                      
+                 
+                    
+                    
+                 });
+             });
+                </script>
+
+
+    </div>
+
+   @section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    }
+  
+   

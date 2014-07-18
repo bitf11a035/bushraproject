@@ -1,0 +1,70 @@
+﻿
+@model SignalRChatApp.Models.Item
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+   @section Title
+             {
+                 <title>Food &amp; Home Page</title>
+                 
+                 }       
+
+@section Header
+{
+    
+    <a href="~/Home"><img src="~/images/logo.png" alt="Logo"></a>
+    
+      
+
+    }  
+@section Content
+{
+ <div align="center">
+<img src="~/images/animated_female_scientist_search_earth_hg_wht_251.gif" alt="Image">
+    </div>
+<form action="/Admin/search3">
+<div    align="center">
+    Enter Title: <input type="text" name="search" id="search" /> 
+         <input type="button" id="b1" value="Check Availability" /><br />
+    
+     <input type="submit" id="b2" value="Show Details" /><br />
+    </form>
+
+
+    <div id="result"></div>
+    @Scripts.Render("~/bundles/jquery")
+    <script>
+
+        $(document).ready(function () {
+
+
+            $('#b1').click(function () {
+
+                var userName = $('#search').val();
+
+                // alert('User Name ='+ userName);
+                $('#checking').show();
+                $.getJSON("/Admin/CheckUserName?search=" + userName, function (data) {
+                    $('#checking').hide();
+                    if (data) {
+                        $('#result').text("Book Exist");
+
+                    }
+                    else {
+                        $('#result').text("Book Dont Exist");
+                    }
+                });
+
+            });
+
+        });
+    </script>
+</div>
+  
+
+    } 
+	
+	
+    

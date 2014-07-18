@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout="~/Views/Shared/_LayoutMain.cshtml";
+}
+   @section Title
+             {
+                 <title>Food &amp; Home Page</title>
+                 
+                 }       
+
+@section Header
+{
+    
+    <a href="~/Home"><img src="~/images/logo.png" alt="Logo"></a>
+    
+      
+
+    }  
+@section Content
+{
+     <div class="body">
+		<div>
+			<div class="header">
+			<ul>
+					<li>
+                         @Html.ActionLink("HOME", "HomeCustomer","Login" ) 
+						@*<a href="~/Home">HOME</a>*@
+					</li>
+					<li>
+                        
+                         @Html.ActionLink("BOOKS", "Recipes2","Recipes" ) 
+						@*<a href="~/Recipes/Recipes">RECIPIE BOOKS</a>*@
+					</li>
+					<li>
+                         @Html.ActionLink("UPLOAD PICTURES", "Upload","UploadPictures" ) 
+					@*	<a href="~/UploadPictures/Upload">UPLOAD PICTURES</a>*@
+					</li>
+					<li>
+                        
+                        @Html.ActionLink("ENJOY CHATS", "chat","Home" ) 
+						@*<a href="~/Videos/Videos">VIDEOS</a>*@
+					</li>
+					<li>
+                         @Html.ActionLink("ABOUT", "CustomerAbout","About" ) 
+						@*<a href="~/About/About">ABOUT</a>*@
+					</li>
+                <li>
+                @Html.ActionLink("SEARCH", "search","Home" )
+                    </li>
+					
+				</ul>
+			</div>
+
+
+
+			<div class="body">
+				<div>
+					<a href="~/Videos/Videos"><img src="~/images/turkey.jpg" alt="Image"></a>
+				</div>
+			</div>
+			<div class="footer">
+				<ul>
+					<li>
+						<h2>@Html.ActionLink("UPLOAD PICTURES", "Upload","UploadPictures" )<img src="~/images/featured.jpg" alt="Image"> </h2>
+					</li>
+					<li>
+						<h2> @Html.ActionLink("RECIPIE BOOKS", "Recipes2","Recipes" )  <img src="~/images/a-z.jpg" alt="Image"></h2>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<h2>@Html.ActionLink("VIDEOS", "VideosCustomer","Videos" ) <img src="~/images/videos.jpg" alt="Image"></h2>
+						
+					</li>
+					<li>
+						<h2> @Html.ActionLink("SEARCH", "search","Home" )<img src="~/images/blog.jpg" alt="Image"></h2>
+					
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div>
+			<div>
+                <li>@Html.ActionLink("Logout", "Logout","Home" )</li>
+				<h3>@Html.ActionLink("Cooking Video", "VideosCustomer","Videos" )<img src="~/images/cooking-video.png" alt="Image"></h3>
+				
+				<span>Vegetable &amp; Rice Topping</span>
+			</div>
+		</div>
+         <div>
+             <form action="/Home/chat">
+<div    align="center">
+  want to do chat?
+    
+     <input type="submit" id="b2" value="yes" /><br />
+    </form>
+         </div>
+	</div>
+
+</body>
+</html>
+
+    } 
+	
+	
+	
